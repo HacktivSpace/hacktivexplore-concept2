@@ -1,5 +1,25 @@
-  const memoizedGetUser = _.memoize(getUser); // _ is lodash default import
-  memoizedGetUser (1); //going to make api req..
-  memoizedGetUser (1); //do not make api req. but return previous value    stored in
-  getUserId(1)
-  memoizedGetUser (3); //makes api call
+ ### Memoization with Lodash
+
+To further illustrate the concept of memoization, consider the following example using Lodash, a utility library in JavaScript.
+
+```javascript
+import _ from 'lodash';
+
+// Assume 'getUser' is a function that makes an API call to fetch user data
+const getUser = async (userId) => {
+  // ... API call logic here ...
+  const userData = await fetchUserData(userId);
+  return userData;
+};
+
+// Use Lodash's memoize function to create a memoized version of 'getUser'
+const memoizedGetUser = _.memoize(getUser);
+
+// Example 1: Making an API request for user with ID 1
+memoizedGetUser(1); // API request made
+
+// Example 2: Reusing the memoized result for user with ID 1
+memoizedGetUser(1); // No API request made, returns previous value stored in cache
+
+// Example 3: Making an API request for user with ID 3
+memoizedGetUser(3); // API request made
