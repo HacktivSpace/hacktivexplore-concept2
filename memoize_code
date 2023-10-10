@@ -1,0 +1,5 @@
+  const memoizedGetUser = _.memoize(getUser); // _ is lodash default import
+  memoizedGetUser (1); //going to make api req..
+  memoizedGetUser (1); //do not make api req. but return previous value    stored in
+  getUserId(1)
+  memoizedGetUser (3); //makes api call
